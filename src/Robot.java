@@ -73,5 +73,25 @@ public class Robot {
         else
             return 5000.00;
     }
+
+    public void sendAgeMsg() throws IllegalArgumentException {
+        try {
+            if (age > 25) {
+                throw new IllegalArgumentException("Age too old");
+            }
+        } catch (IllegalArgumentException e) {
+            System.out.println("Error " + e.getMessage());
+        }
+        System.out.println("Age ok");
+    }
+
+    public double getTotalCost(RobotFees rFees)
+    {
+        double cost;
+        double fees;
+        fees = rFees.getCost(age);
+        System.out.println("for " + age + "the cost is " + checkCost());
+        cost = (checkCost()) + fees; return cost;
+    }
 }
 
